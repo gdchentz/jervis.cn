@@ -9,7 +9,7 @@ public class hello {
 
     @RequestMapping("/hello")
     public  String Hello(){
-        return  "This is Rest test done!!!";
+        return  "Ok test done!!!";
 
     }
 
