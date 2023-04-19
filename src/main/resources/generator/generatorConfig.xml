@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置生成器 -->
+<generatorConfiguration>
+    <classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\8.0.24\mysql-connector-java-8.0.24.jar" />
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://jervis.cn:13306/wdbs"
+                        userId="jadb"
+                        password="gd.jervis">
+        </jdbcConnection>
+
+        <!-- 类型转换 -->
+<!--        <javaTypeResolver>-->
+<!--            &lt;!&ndash; 是否使用BigDecimals，false可自动转化以下类型(Long Integer Short等) &ndash;&gt;-->
+<!--            <property name="forceBigDecimals" value="false"/>-->
+<!--        </javaTypeResolver>-->
+
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+
+        <table tableName="gr_info" domainObjectName="grxx"></table>
+        <!--        <table tableName="sys_center_control" domainObjectName="SysCenterControl" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false"></table>-->
+        <!--        <table tableName="sys_date_schedule" domainObjectName="SysDateSchedule" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false"></table>-->
+        <!--        <table tableName="sys_dept" domainObjectName="SysDept" enableCountByExample="false"-->
+        <!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--               selectByExampleQueryId="false"></table>-->
+
+    </context>
+</generatorConfiguration>
