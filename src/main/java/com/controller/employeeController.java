@@ -25,7 +25,8 @@ public class employeeController {
 
     @GetMapping("/employee/{id}")
     public  Object employee(@PathVariable Integer id){
-        return  empMapper.queryEmployees();
+
+        return  empMapper.queryEmployee(id);
     }
 
 }
